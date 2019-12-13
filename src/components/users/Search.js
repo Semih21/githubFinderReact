@@ -1,0 +1,37 @@
+import React, { Component } from "react";
+
+export class Search extends Component {
+  state = {
+    text: ""
+  };
+  onChange = event => {
+    this.setState({
+      text: event.target.value
+    });
+  };
+  onSubmit = e => {
+    e.preventDefault();
+    console.log(this.state.text);
+  };
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.onSubmit} className="form">
+          <input
+            type="text"
+            name="text"
+            placeholder="Search Users..."
+            onChange={this.onChange}
+          />
+          <input
+            type="submit"
+            value="Search"
+            className="btn btn-dark btn-block"
+          />
+        </form>
+      </div>
+    );
+  }
+}
+
+export default Search;
